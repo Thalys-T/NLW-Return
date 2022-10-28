@@ -15,10 +15,21 @@ interface Props extends TouchableOpacityProps{
   image: ImageProps;
 }
 
-export function Option() {
+export function Option({ title, image, ...rest}: Props) {
   return (
-    <TouchableOpacity style={styles.container}>
-
+    <TouchableOpacity 
+      style={styles.container}
+       {...rest}
+    >
+     
+      <Image
+      //@ts-ignore
+        source={image}
+        style={styles.image}
+      />
+      <Text style={styles.title}>
+          {title}
+      </Text>
     </TouchableOpacity>
   );
 }
